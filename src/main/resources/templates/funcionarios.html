@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+            <header>
+            <h1>Lista de Funcionarios na empresa</h1>            
+       </header>
+    <body>
+                <table>
+                <tr>
+                    <th>Id</th>
+                    <th>nome</th>
+                    <th>cargo</th>
+                    <th>departamento</th>
+                    <th>email</th>
+                    <th>dataContratacao</th>
+                    <th>Ações</th>
+                </tr>
+                <tr th:each="item : ${lista}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.nome}"></td>
+                    <td th:text="${item.cargo}"></td>
+                    <td th:text="${item.departamento}"></td>
+                    <td th:text="${item.email}"></td>
+                    <td th:text="${item.datacontratacao}"></td>
+                    <td>
+                        <a th:href="@{/perfil(id= ${item.id})}">Editar</a>
+                    </td>
+                </tr>
+                </table>
+    </body>
+</html>
