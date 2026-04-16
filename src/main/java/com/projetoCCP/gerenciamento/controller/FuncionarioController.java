@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -33,4 +36,21 @@ public class FuncionarioController {
      model.addAttribute("funcionario",funcionario);
    return("perfil");  
  }
+ 
+@PostMapping("/salvar")
+public String salvarDados(@ModelAttribute FuncionarioBean funcionario){
+    service.atualizar(funcionario);
+    return "redirect:/funcionarios";        
+    }
+
+@PutMapping("/atualizar")
+public String atualizarDados(@ModelAttribute FuncionarioBean funcionario){
+    service.atualizar(funcionario);
+    return "redirect:/funcionarios";  
+    }
+@GetMapping("/criar")
+public String CriarDados(@ModelAttribute FuncionarioBean funcionario){
+    service.criar(funcionario);
+    return "criar";
+}
 }

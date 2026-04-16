@@ -26,4 +26,10 @@ public class FuncionarioService {
     public FuncionarioBean LerPorId(int id){
         return repository.LerPorId(id);
     }
+    public void atualizar(FuncionarioBean funcionario){
+        repository.atualizar(funcionario);
+    }
+    public void criar(FuncionarioBean funcionario){
+        repository.criar(funcionario);
+    }
 }

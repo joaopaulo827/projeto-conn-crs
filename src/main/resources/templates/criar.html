@@ -9,15 +9,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-            <header>
-                    <nav>
-                        <a href="/funcionarios">Voltar</a>
-                    </nav>            
+        <header>
+            <nav>
+                <a href="/funcionarios">Voltar</a>
+            </nav>            
         </header>
     <body>
         <main>
-            <h2> Editar Dados</h2>
-            <form th:action="@{/salvar}" th:object="${funcionario}" method="post">
+            <h2> Criar Dados</h2>
+            <form th:action="@{/salvar}" th:object="${funcionarios}">
                 <input type="hidden" th:field="*{id}" /><br />
                 <label>Nome:</label>
                 <input type="text" th:field="*{nome}" /><br />
@@ -29,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="email" th:field="*{email}" /><br />
                 <label>Data de Contratação:</label>
                 <input type="date" th:field="*{datacontratacao}" /><br />
-                <button type="submit">Salvar</button>
+                <button type="submit">Criar</button>
             </form>
         </main>
     </body>
