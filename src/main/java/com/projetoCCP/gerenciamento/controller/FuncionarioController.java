@@ -37,6 +37,14 @@ public class FuncionarioController {
    return("perfil");  
  }
  
+ @GetMapping("/criar-novo")
+ public String CriarNovo(Model model){
+     FuncionarioBean funcionario = new FuncionarioBean();
+       model.addAttribute("funcionario", funcionario);     
+     return "criar-novo";
+ 
+ }
+ 
 @PostMapping("/salvar")
 public String salvarDados(@ModelAttribute FuncionarioBean funcionario){
     service.atualizar(funcionario);
@@ -48,9 +56,10 @@ public String atualizarDados(@ModelAttribute FuncionarioBean funcionario){
     service.atualizar(funcionario);
     return "redirect:/funcionarios";  
     }
-@GetMapping("/criar")
+
+@PostMapping("/criar")
 public String CriarDados(@ModelAttribute FuncionarioBean funcionario){
     service.criar(funcionario);
-    return "criar";
+    return "redirect:/funcionarios";
 }
 }
